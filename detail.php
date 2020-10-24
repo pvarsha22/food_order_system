@@ -4,7 +4,7 @@
 	if(!$conn){
 		echo "Connection error".mysqli_connect_error();
 	}
-		$food_id=mysqli_real_escape_string($conn,$_POST['submit']);
+		$food_id=mysqli_real_escape_string($conn,$_POST['more']);
 		$query="SELECT  * FROM food WHERE f_id='$food_id'";
 		$result=mysqli_query($conn,$query);
 		$rows=mysqli_fetch_all($result,MYSQLI_ASSOC);
