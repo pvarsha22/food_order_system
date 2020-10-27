@@ -19,12 +19,29 @@
 	<title>Bill</title>
 </head>
 <body><center>
-	<div style="padding-top: 90px;">
+	<div style="border: 3px solid blue; padding: 35px 70px 50px; background-color: OldLace">
 	<table >
 	<tr><?php foreach ($rows as $food):  ?>
 		<h4><?php echo $food['name']."&nbsp;"."&nbsp;"."&nbsp;".$food['price']; ?></h4>
 	<?php endforeach ?></tr>
-	<tr><h3> Total : <?php echo $total; ?></h3></tr>
+	<tr><h3> Total :   <?php echo "Rs. ".$total; ?></h3></tr>
+	<tr><td><h3><?php echo "Want to remove item.."."<br>"; ?></td></h3>
+		<td><form action="cart.php" method="POST" >
+			<button type="submit" name="delete">Delete item</button><br><br>
+		</form></td>
+	</tr>
+	<tr><td><h3><?php echo "Want to add item.."."<br>"; ?></td></h3>
+		<td><form action="menu.php" method="POST" >
+			<button type="submit" name="add_more">Add item</button><br><br>
+		</form></td>
+	</tr>
+	<tr><td><h3><?php echo "Make payment"."<br>"; ?></td></h3>
+		<td><form action="exit.php" method="POST" >
+			<button type="submit" name="pay">Pay</button><br><br>
+		</form></td>
+	</tr>
+
+
 	</table>
 	</div>
 	</center>

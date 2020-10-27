@@ -20,7 +20,7 @@
 	<title>Details</title>
 </head>
 <body><center>
-	<div style="display: inline-block; padding-top: 300px;">
+	<div style="border: 3px solid blue; padding: 35px 70px 50px;background-color: OldLace;">
 		<?php foreach ($rows as $food): ?>
 			<h4>Name: <?php echo $food['name']."<br>"; ?>
 			Price: <?php echo $food['price']."<br>"; ?>

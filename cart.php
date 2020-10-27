@@ -40,9 +40,9 @@
 	<title>Cart</title>
 </head>
 <body>
-	<h3 style="padding-left: 450px">Your orders :</h3><br>
+	<h3 style="padding-left: 450px;">Your orders :</h3><br>
 	<center>
-	<div>
+	<div style="border: 3px solid blue; padding: 35px 70px 50px;background-color: OldLace;">
 	<table> 
 		<?php foreach ($row as $food): ?>
 			<tr><td><h4><?php echo $food['name']."&nbsp;"."&nbsp;"."&nbsp;".$food['price']; ?></h4></td>

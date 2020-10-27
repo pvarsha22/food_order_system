@@ -61,14 +61,16 @@
 
 <body>
 	<center>
-		<form style="padding-top: 300px" action="menu.php" method="POST">
-			Email:<input type="text" name="email" value="<?php echo htmlspecialchars($email); ?>"><br>
-			<div style="color: red"><?php echo $errors['email']; ?></div>	
-			Password:<input type="password" name="password">
-			<div style="color: red"><?php echo $errors['password']; ?></div><br>
-			<button type="submit" name="login" >Login</button>
-
-		</form>
+		<div style="border: 3px solid blue; padding: 0px 35px 70px 50px;background-color: OldLace;">
+			<h2><p style="padding-top: 60px;"><?php echo "Login to order your food"; ?></p></h2>
+			<form style="padding-top: 150px; padding-bottom: 150px;" action="menu.php" method="POST">
+				Email:<input type="text" name="email" value="<?php echo htmlspecialchars($email); ?>"><br>
+				<div style="color: red"><?php echo $errors['email']; ?></div>	
+				Password:<input type="password" name="password">
+				<div style="color: red"><?php echo $errors['password']; ?></div><br>
+				<button type="submit" name="login" >Login</button>
+			</form>
+		</div>
 	</center>>
 
 </body>
