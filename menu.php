@@ -1,12 +1,9 @@
 <?php
 	session_start();
+	include('connection.php');
+
 ?>
 <?php
-	$conn=mysqli_connect('localhost','varsha','abc123456','order');
-	if(!$conn){
-		echo "Connection error".mysqli_connect_error();
-	}
-
 	$sql="SELECT * from food";
 	$res=mysqli_query($conn,$sql);
 	$row=mysqli_fetch_all($res,MYSQLI_ASSOC);

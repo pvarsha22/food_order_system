@@ -1,9 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+	include('connection.php'); ?>
 <?php 
-	$conn=mysqli_connect('localhost','varsha','abc123456','order');
-	if(!$conn){
-		echo "Connection error".mysqli_connect_error();
-	}
 		$food_id=mysqli_real_escape_string($conn,$_POST['more']);
 		$query="SELECT  * FROM food WHERE f_id='$food_id'";
 		$result=mysqli_query($conn,$query);

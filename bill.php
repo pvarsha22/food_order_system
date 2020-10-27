@@ -1,10 +1,6 @@
-<?php session_start(); ?>
-<?php 
-		$conn=mysqli_connect('localhost','varsha','abc123456','order');
-		if(!$conn){
-		echo "Connection error".mysqli_connect_error();
-		}
-?>
+<?php session_start(); 
+include('connection.php'); ?>
+
 		<?php $sql="SELECT * FROM cart"; 
 		$res=mysqli_query($conn,$sql);
 		$rows=mysqli_fetch_all($res,MYSQLI_ASSOC); 
