@@ -2,59 +2,55 @@
 	session_start();
 	include('connection.php');
 ?>
-<?php
+<?php 	
 	$email=$password='';
 	$errors=array('email'=>'','password'=>'');
+	
 	if(isset($_POST['login'])){
 		if(empty($_POST['email'])){
-			$errors['email'] = 'email is required <br>';
-		}	
+			$errors['email']='Please enter your email';
+		}
 		else{
 			$email=$_POST['email'];
-			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-				$errors['email'] = 'Email must be a valid email <br>';
-			}
 		}
 		if(empty($_POST['password'])){
-			$errors['password']='Passsword is empty <br>';
+			$errors['password']='Please enter your password';
 		}
 		else{
 			$password=$_POST['password'];
-			$uppercase = preg_match('@[A-Z]@', $password);
-			$lowercase = preg_match('@[a-z]@', $password);
-			$number    = preg_match('@[0-9]@', $password);
-
-			if(!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
-			  $errors['password']='Enter a valid password';
-			}
 		}
+		if(array_filter($errors)){
+			//has errors
+			echo $errors['email']."<br>".$errors['password'];
 
-	if(array_filter($errors)){
-		// echo 'The form has errors';
-	}
-	else{
-		// echo 'The form is valid';
-		$email=mysqli_real_escape_string($conn,$_POST['email']);
-		$password=mysqli_real_escape_string($conn,$_POST['password']);
-
-		$sql = "INSERT INTO user(email,password) VALUES('$email','$password')";
-
-		
-		if(mysqli_query($conn,$sql)){
-			header('location:menu.php');
 		}
 		else{
-			echo 'query error' ."<br>". mysqli_error($conn);
+			$email=mysqli_real_escape_string($conn,$_POST['email']);
+			$password=mysqli_real_escape_string($conn,$_POST['password']);
+			$query_email="SELECT email FROM user WHERE email='$email'";
+			$res_email=mysqli_query($conn,$query_email);
+			$query_password="SELECT password FROM user WHERE password='$password'";
+			$res_password=mysqli_query($conn,$query_password);
+			if(mysqli_num_rows($res_email)>0 and mysqli_num_rows($res_password)>0 ){
+					header("location:menu.php");
+					exit();
+			}
+			else{
+					 $errors['password']='Invalid email/password!!';
+			}
+
 		}
 	}
-}
+
 ?>
+
 
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head> 
 
 <body>
@@ -66,10 +62,13 @@
 				<div style="color: red"><?php echo $errors['email']; ?></div>	
 				Password:<input type="password" name="password">
 				<div style="color: red"><?php echo $errors['password']; ?></div><br>
-				<button type="submit" name="login" >Login</button>
+				<button type="submit" name="login" value="login">Login</button>
+			</form>
+			<form method="POST" action="register.php">
+				New user?<button type="submit" name="register">Click here</button><br><br>
 			</form>
 		</div>
-	</center>>
+	</center>
 
 </body>
 </html>

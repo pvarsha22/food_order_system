@@ -1,18 +1,21 @@
 <?php session_start(); 
 include('connection.php'); ?>
 
-		<?php $sql="SELECT * FROM cart"; 
+	<?php 
+		$sql="SELECT * FROM cart"; 
 		$res=mysqli_query($conn,$sql);
 		$rows=mysqli_fetch_all($res,MYSQLI_ASSOC); 
 		$sum=mysqli_query($conn,"SELECT sum(price) as total FROM cart");
 		$row=mysqli_fetch_assoc($sum);
 		$total=$row['total'];
-		?>
+	?>
+
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Bill</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body><center>
 	<div style="border: 3px solid blue; padding: 35px 70px 50px; background-color: OldLace">
