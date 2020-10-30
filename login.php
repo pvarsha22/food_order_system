@@ -45,7 +45,6 @@
 ?>
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +62,9 @@
 				Password:<input type="password" name="password">
 				<div style="color: red"><?php echo $errors['password']; ?></div><br>
 				<button type="submit" name="login" value="login">Login</button>
+			</form>
+			<form method="POST" action="new_password.php">
+				Forgot password<button type="submit" name="forgot">Click here</button><br><br>
 			</form>
 			<form method="POST" action="register.php">
 				New user?<button type="submit" name="register">Click here</button><br><br>
