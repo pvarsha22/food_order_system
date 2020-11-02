@@ -99,6 +99,39 @@
 			$res=mysqli_query($conn,$sql);?>
 		<?php endforeach ?>
 	<?php endif ?>
+	<!-- adding icecreams -->
+	<?php if(isset($_POST['add_icecream'])): ?>
+		<?php $food_id=mysqli_real_escape_string($conn,$_POST['add_icecream']);
+		$query="SELECT * FROM icecream WHERE ic_id='$food_id'";
+		$result=mysqli_query($conn,$query);
+		$rows=mysqli_fetch_all($result,MYSQLI_ASSOC);?>
+
+		<?php foreach ($rows as $food): ?>
+			<?php $f_id=mysqli_real_escape_string($conn,$food['ic_id']);
+			$name=mysqli_real_escape_string($conn,$food['name']);
+			$price=mysqli_real_escape_string($conn,$food['price']);
+
+			$sql = "INSERT INTO cart(f_id,name,price) VALUES('$f_id','$name','$price')";
+			$res=mysqli_query($conn,$sql);?>
+		<?php endforeach ?>
+	<?php endif ?>
+
+		<!-- adding juice -->
+	<?php if(isset($_POST['add_juice'])): ?>
+		<?php $food_id=mysqli_real_escape_string($conn,$_POST['add_juice']);
+		$query="SELECT * FROM juice WHERE j_id='$food_id'";
+		$result=mysqli_query($conn,$query);
+		$rows=mysqli_fetch_all($result,MYSQLI_ASSOC);?>
+
+		<?php foreach ($rows as $food): ?>
+			<?php $f_id=mysqli_real_escape_string($conn,$food['j_id']);
+			$name=mysqli_real_escape_string($conn,$food['name']);
+			$price=mysqli_real_escape_string($conn,$food['price']);
+
+			$sql = "INSERT INTO cart(f_id,name,price) VALUES('$f_id','$name','$price')";
+			$res=mysqli_query($conn,$sql);?>
+		<?php endforeach ?>
+	<?php endif ?>
 
 	<!--adding from  cart  -->
 	<?php $cart="SELECT * FROM cart";
@@ -124,7 +157,7 @@
 <body>
 	<h3 style="padding-left: 450px;">Your orders :</h3><br>
 	<center><div style="padding-top: 15px">
-		<div style="border: 3px solid blue; padding: 10px 35px 70px 50px;background-color: OldLace;">
+		<div style="border: 3px solid blue; padding: 10px 35px 70px 50px;background-image: url('images/bg_menu.gif') ;">
 		<table> 
 			<?php foreach ($row as $food): ?>
 				<tr><td><h4><?php echo $food['name']."&nbsp;"."&nbsp;"."&nbsp;".":"."&nbsp;"."&nbsp;"."&nbsp;"."Rs".$food['price']; ?></h4></td>

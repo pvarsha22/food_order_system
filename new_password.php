@@ -33,7 +33,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>	<center>
-		<div style="border: 3px solid blue; padding: 0px 35px 70px 50px;background-color: OldLace;">
+		<div style="border: 3px solid blue; padding: 0px 35px 70px 50px;background-image: url('images/bg_cat.gif') ;">
 			<h2><p style="padding-top: 60px;"><?php echo "Update password"; ?></p></h2>
 			<form style="padding-top: 150px; padding-bottom: 150px;" action="new_password.php" method="POST">
 				Email:<input type="text" name="email"><br>	

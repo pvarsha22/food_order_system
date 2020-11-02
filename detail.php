@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body><center>
-	<div style="border: 3px solid blue; padding: 35px 70px 50px;background-color: OldLace;">
+	<div style="border: 3px solid blue; padding: 35px 70px 50px;background-image: url('images/bg_menu.gif') ;">
 		<?php foreach ($rows as $food): ?>
 			<h3>Name: <?php echo $food['name']."<br>"; ?>
 			Price: <?php echo $food['price']."<br>"; ?>

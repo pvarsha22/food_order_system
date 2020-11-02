@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
-	<div align="center" style="padding-top: 50px; background-color: OldLace;">
+	<div align="center" style="padding-top: 50px;background-image: url('../images/bg_menu.gif') ;">
 		<?php foreach ($row as $roti) : ?>
 			<div style="display: inline-block">
 			<h3><?php echo $roti['name']."<br>";
