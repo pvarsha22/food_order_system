@@ -3,7 +3,7 @@
 	<!-- adding from menu -->
 	<?php if(isset($_POST['add'])): ?>
 		<?php $food_id=mysqli_real_escape_string($conn,$_POST['add']);
-		$query="SELECT * FROM food WHERE f_id='$food_id'";
+		$query="SELECT * FROM menu WHERE f_id='$food_id'";
 		$result=mysqli_query($conn,$query);
 		$rows=mysqli_fetch_all($result,MYSQLI_ASSOC);?>
 
@@ -141,7 +141,7 @@
 	
 	<?php if(isset($_POST['remove'])): ?>
 		<?php $remove_id=mysqli_real_escape_string($conn,$_POST['remove']);
-		$query="DELETE FROM cart WHERE id='$remove_id' "; 
+		$query="DELETE FROM cart WHERE order_id='$remove_id' "; 
 		mysqli_query($conn,$query);
 		header("location:bill.php")
 		?>
@@ -162,7 +162,7 @@
 			<?php foreach ($row as $food): ?>
 				<tr><td><h4><?php echo $food['name']."&nbsp;"."&nbsp;"."&nbsp;".":"."&nbsp;"."&nbsp;"."&nbsp;"."Rs".$food['price']; ?></h4></td>
 				<td><form action="cart.php" method="POST" >
-				<button type="submit" name="remove" value="<?php echo $food['id']; ?>">Remove item</button><br>
+				<button type="submit" name="remove" value="<?php echo $food['order_id']; ?>">Remove item</button><br>
 				</form></td><br></tr>
 			<?php endforeach ?><br><br>
 			<tr>

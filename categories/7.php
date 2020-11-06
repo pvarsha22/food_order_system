@@ -23,7 +23,7 @@
 			echo $juice['price']."<br>"; ?></h3>
 			<img src="<?php echo "images/juice/".$juice['j_id'].".jpg"; ?>" width="300" height="300"><br><br>
 			<form method="POST" action="../cart.php">
-			<button type="submit" name="add_juice" value="<?php echo $ice['j_id']; ?>">Add item</button><br><br></div>
+			<button type="submit" name="add_juice" value="<?php echo $juice['j_id']; ?>">Add item</button><br><br></div>
 		<?php endforeach ?>
 	</div>
 	

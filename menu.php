@@ -4,7 +4,7 @@
 
 ?>
 <?php
-	$sql="SELECT * from food";
+	$sql="SELECT * from menu";
 	$res=mysqli_query($conn,$sql);
 	$row=mysqli_fetch_all($res,MYSQLI_ASSOC);
 
@@ -36,7 +36,7 @@
 			<h4>Name: <?php echo $food['name']."<br>"; ?>
 			Price: <?php echo $food['price']."<br>"; ?></h4>
 			<form method="POST" action="detail.php">
-			<img src="<?php echo "images/".$food['r_id'].".jpg"; ?>" width="300" height="300" style="vertical-align:middle;margin:0px 50px"><br><br>
+			<img src="<?php echo "images/".$food['f_id'].".jpg"; ?>" width="300" height="300" style="vertical-align:middle;margin:0px 50px"><br><br>
 			<button type="submit" name="more" value="<?php echo $food['f_id']; ?>">More details</button><br><br></form>
 			<form method="POST" action="cart.php">
 			<button type="submit" name="add" value="<?php echo $food['f_id']; ?>">Add item</button><br><br>
